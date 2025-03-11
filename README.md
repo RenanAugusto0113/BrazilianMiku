@@ -40,3 +40,8 @@ If you want to redistribute or modify this project, follow these steps:
     
 3. Where can I find more information about the GPL-3.0?
     -> Visit the official GNU GPL website for complete details.
+
+##### Credits
+
+Code made by Renan Augusto Cristi Avelar
+Brazilian Miku art by MagDraws

@@ -19,6 +19,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
     Author's e-mail: renan.augusto0113@gmail.com
+    Brazilian Miku Art by MagDraws
 
 '''
 
