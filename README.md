@@ -2,9 +2,9 @@
 
 A simple tool designed to be used with OBS Studio to make a character (by default, the Brazilian Hatsune Miku represented by an image) say something (via audio) after a customizable and invisible timer reaches zero.
 
-## Como Baixar o Executável
+## How to download?
 
-Os executáveis estão disponíveis na seção [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) deste repositório. Não inclua a pasta `dist/` no seu fork ou clone, pois ela contém apenas binários gerados automaticamente.
+The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Don't include folder `dist/` in your fork or clone, since it conteins only binaries generated automatically.
 
 # License
 
