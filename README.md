@@ -2,15 +2,15 @@
 
 A simple tool designed to be used with OBS Studio to make a character (by default, the Brazilian Hatsune Miku represented by an image) say something (via audio) after a customizable and invisible timer reaches zero.
 
-### How to download?
+### 📥 How to download?
 
 The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Don't include folder `dist/` in your fork or clone, since it conteins only binaries generated automatically.
 
-### Web version
+### 🌐 Web version
 
-There is also a web version that can also be downloaded on the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository, this was made to be a "Universal version" of the tool that works regardless of the operational system.
+There is also a web version that can also be downloaded on the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository, this was made to be a version of the tool that works regardless if you are using windows or linux, just run the "start.bat" if you are on windows or "start.sh" if you are on linux.
 
-## License
+## 📜 License
 
 This project is licensed under the terms of the **GNU General Public License v3.0** (GPL-3.0). This means that you are free to:
 
@@ -28,7 +28,7 @@ For more details, see the [LICENSE](LICENSE) file in the repository or visit the
 
 ---
 
-## How to Comply with the License
+## ⁉ How to Comply with the License
 
 If you want to redistribute or modify this project, follow these steps:
 
@@ -38,18 +38,18 @@ If you want to redistribute or modify this project, follow these steps:
    // Copyright (c) 2025 Renan Augusto Cristi Avelar
    // This file is part of BrazilianMiku, licensed under the GPL-3.0.
 
-## Frequently Asked Questions
+## ❓ Frequently Asked Questions
 
 #### 1. Can I use this software in a commercial project?
-    -> Yes, you can use this software in commercial projects, as long as you comply with the terms of the GPL-3.0 (e.g., by providing the source code).
+     ✔ yes, you can use this software in commercial projects, as long as you comply with the terms of the GPL-3.0 (e.g., by providing the source code).
 
 #### 2. Can I change the license of this software?
-    -> No, you cannot change the license of this software. Any derivative works must be licensed under the GPL-3.0.
+    ❌ No, you cannot change the license of this software. Any derivative works must be licensed under the GPL-3.0.
     
 #### 3. Where can I find more information about the GPL-3.0?
-    -> Visit the official GNU GPL website for complete details.
+    ❕ Visit the official GNU GPL website for complete details.
 
-## Credits
+## 👏 Credits
 
-#### Code made by Renan Augusto Cristi Avelar  
-#### Brazilian Miku art by MagDraws
+#### 👨‍💻 Code made by Renan Augusto Cristi Avelar  
+#### 👨‍🎨 Brazilian Miku art by MagDraws
