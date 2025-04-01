@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazilianMiku</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #FF00FF; /* Background color, it doesn't need to be especifically magenta, as long as it works good with your image when using the "Chroma Key" filter from OBS Studio */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #input-screen {
+            background: #646464;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #main-screen {
+            display: none;
+            position: relative;
+            width: 512px;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #timer-display {
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            transition: all 1s ease;
+        }
+
+        #miku-image {
+            position: absolute;
+            width: 512px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 1s ease;
+        }
+
+        .separated #timer-display {
+            top: 32% !important;
+        }
+
+        .separated #miku-image {
+            top: 47% !important;
+        }
+
+        input {
+            width: 40px;
+            margin: 0 4px;
+            padding: 4px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            margin-top: 4px;
+        }
+
+        #preview-border {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -8%);
+            width: 512px;
+            height: 512px;
+            border: 4px dashed red;
+            display: none;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .show-preview #preview-border {
+            display: block;
+        }
+
+        #input-screen {
+            background: #646464;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .preview-option {
+            margin: 10px 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="input-screen">
+        <div class="preview-option">
+            <label>
+                <input type="checkbox" id="preview-checkbox"> 
+                Show border to predict image position
+            </label>
+        </div>
+        <h2>Timer (hh:mm:ss)</h2>
+        <div>
+            <input type="number" id="hours" min="0" value="0" maxlength="2">
+            <span>:</span>
+            <input type="number" id="minutes" min="0" max="59" value="0" maxlength="2">
+            <span>:</span>
+            <input type="number" id="seconds" min="0" max="59" value="0" maxlength="2">
+        </div>
+        <button onclick="startTimer()">Iniciar</button>
+        <div id="error" class="error"></div>
+    </div>
+
+    <div id="preview-border"></div>
+
+    <div id="main-screen">
+        <h2 id="timer-display"></h2>
+        <img id="miku-image" src="media/BrazilianMiku.png" alt="Miku">
+    </div>
+
+    <script>
+        let remainingTime = 0;
+        let timerInterval;
+        const audioFiles = Array.from({length: 8}, (_, i) => `media/audio${i+1}.mp3`); // Sync the value of "length: X" with the number of audio files you have in the "media" folder
+        // One of the limitations of this web version is that the audio files must be named as "audio1.mp3", "audio2.mp3", ..., "audio10.mp3"
+        // Because you HAVE to manually set audio files directories individually
+
+        document.getElementById('preview-checkbox').addEventListener('change', function() {
+            document.body.classList.toggle('show-preview', this.checked);
+        });
+
+        function startTimer() {
+            const hours = parseInt(document.getElementById('hours').value) || 0;
+            const minutes = parseInt(document.getElementById('minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('seconds').value) || 0;
+
+            if (minutes > 59 || seconds > 59 || hours < 0) {
+                document.getElementById('error').textContent = 'Unknown values!';
+                return;
+            }
+
+            remainingTime = (hours * 3600) + (minutes * 60) + seconds;
+            
+            if (remainingTime <= 0) {
+                document.getElementById('error').textContent = 'Number in timer denied!';
+                return;
+            }
+
+            document.getElementById('input-screen').style.display = 'none';
+            document.getElementById('main-screen').style.display = 'block';
+            updateDisplay();
+            startCountdown();
+        }
+
+        function startCountdown() {
+            timerInterval = setInterval(() => {
+                remainingTime--;
+                updateDisplay();
+                
+                if (remainingTime <= 0) {
+                    clearInterval(timerInterval);
+                    showMiku();
+                    playAudio();
+                }
+            }, 1000);
+        }
+
+        function updateDisplay() {
+            const hours = Math.floor(remainingTime / 3600);
+            const minutes = Math.floor((remainingTime % 3600) / 60);
+            const seconds = remainingTime % 60;
+            
+            document.getElementById('timer-display').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function showMiku() {
+        const mainScreen = document.getElementById('main-screen');
+        const miku = document.getElementById('miku-image');
+        const timer = document.getElementById('timer-display');
+
+        timer.style.display = 'block';
+        miku.style.display = 'block';
+        
+        mainScreen.classList.add('separated');
+    }
+
+        function playAudio() {
+            if (audioFiles.length > 0) {
+                const audio = new Audio(audioFiles[Math.floor(Math.random() * audioFiles.length)]);
+                const mainScreen = document.getElementById('main-screen');
+                audio.play();
+                
+                audio.onended = () => {
+                    mainScreen.classList.remove('separated');
+                };
+            }
+        }
+    </script>
+</body>
+</html>
