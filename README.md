@@ -4,11 +4,11 @@ A simple tool designed to be used with OBS Studio to make a character (by defaul
 
 ### 📥 How to download?
 
-The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Don't include folder `dist/` in your fork or clone, since it conteins only binaries generated automatically.
+The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Or just use `git clone https://github.com/RenanAugusto0113/BrazilianMiku`
 
-### 🌐 Web version
+### 🌐 How to use?
 
-There is also a web version that can also be downloaded on the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository, this was made to be a version of the tool that works regardless if you are using windows or linux, just run the "start.bat" if you are on windows or "start.sh" if you are on linux.
+Just run the "start.bat" or "index.html", or open the "index.file" with OBS with a Web Source on local path
 
 ## 📜 License
 
