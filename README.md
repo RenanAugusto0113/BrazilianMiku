@@ -4,7 +4,8 @@ A simple tool designed to be used with OBS Studio to make a character (by defaul
 
 ### 📥 How to download?
 
-The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Or just use `git clone https://github.com/RenanAugusto0113/BrazilianMiku`
+The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Or just use
+`git clone https://github.com/RenanAugusto0113/BrazilianMiku`
 
 ### 🤔 How to use?
 
