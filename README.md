@@ -6,7 +6,7 @@ A simple tool designed to be used with OBS Studio to make a character (by defaul
 
 The downloads are in the [Releases](https://github.com/RenanAugusto0113/BrazilianMiku/releases) of this repository. Or just use `git clone https://github.com/RenanAugusto0113/BrazilianMiku`
 
-### 🌐 How to use?
+### 🤔 How to use?
 
 Just run the "start.bat" or "index.html", or open the "index.file" with OBS with a Web Source on local path
 
